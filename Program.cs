@@ -34,12 +34,14 @@ class Program
 
     static async Task GetWeather()
     {
-        string apiKey = "e5589729577b447387c131545230507"; //  WeatherAPI.com API key
-        string location = "New York"; // Desired location
+        Console.WriteLine("Enter your API Key: ");
+        string apiKey = Console.ReadLine(); //  WeatherAPI.com API key e5589729577b447387c131545230507
+        Console.WriteLine("Enter your location: ");
+        string location = Console.ReadLine(); // Desired location
 
         string url = $"http://api.weatherapi.com/v1/current.json?key={apiKey}&q={location}";
 
-        var client = new RestClient(url);
+        var client = new RestClient(url); // Client will handle the HTTP request to the API
         var request = new RestRequest();
         var response = await client.ExecuteAsync(request);
 
